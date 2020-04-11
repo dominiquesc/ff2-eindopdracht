@@ -1,0 +1,127 @@
+<html>
+    <head>
+      
+    <style>
+   .box {
+        background: red;
+        border: black 1px solid;
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+        margin-top: 0;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+    }
+
+    .row {
+        display: block;
+        float:left;
+        width:100%;
+    }
+    </style>
+    <script>
+        /*
+        function randomBackground () {
+            var x = Math.round(Math.random() * 255);
+            var y = Math.round(Math.random() * 255);
+            var z = Math.round(Math.random() * 255);
+            var backGround = "background:rgb("+x+", "+y+", "+z+");";
+            var element = document.getElementById("boxParent");
+            element.style = background;
+        }
+        */
+
+        //geprobeerd het dynamisch in the spawnen maar weet niet hoe je dan specifieke ids terugkrijgt
+        function makeBlocks() {
+        for (var x = 0; x < 3; x++) {
+            var row = document.createElement('div');
+            row.id = "row" + x;
+            row.className = "row";
+            for (var y = 0; y < 3; y++) {
+                var box = document.createElement('div');
+                box.id = "box" + y;
+                box.className = "box";
+                row.appendChild(box);
+            }                
+            document.getElementById('boxParent').appendChild(row);
+        }
+       }
+
+       function changeColor () {
+           document.getElementById("box2").style.background="green";
+           document.getElementById("box2").style.transition = "0.9s";
+       }
+       function changeAspect () {
+           document.getElementById("box1").style.height="500px";
+           document.getElementById("box1").style.transition = "0.9s";
+       }
+       function changeWidth() {
+           document.getElementById("box3").style.height="300px";
+           document.getElementById("box3").style.width="300px";
+           document.getElementById("box3").style.transition = "0.9s";
+       }
+       function marginChange() {
+           document.getElementById("box4").style.margin="10px";
+           document.getElementById("box4").style.transition = "0.9s";
+       }
+       function animation() {
+           document.getElementById("box6").style.transform="rotate(180deg)";
+           document.getElementById("box6").style.transition = "0.9s";
+       }
+     
+       function changeColorAnimated () {
+       setInterval(function(){
+       var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+       var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+       var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+       var rgbString = r + ", " + g + ", " + b;
+       document.getElementById('box5').style.backgroundColor = 'rgb(' + rgbString + ')';
+       }, 1000);
+       }
+        
+    </script>
+    </head>
+    <body>
+
+        <div>
+         <div class="row">
+            <div class="box" onclick="changeColor()" id ="box1">
+                
+            </div>
+            <div class="box" onclick="changeAspect()" id ="box2">
+                
+            </div>
+            <div class="box" onmouseover="changeWidth()" id ="box3">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="box" onclick="marginChange()" id ="box4">
+                
+            </div>
+            <div class="box" onclick="animation()" id ="box5">
+                
+            </div>
+            <div class="box" onclick="changeColorAnimated()" id ="box6">
+                
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="box" onClick="window.location.reload();" id ="box7">
+                
+            </div>
+            <div class="box" onClick="window.open('https://www.youtube.com/watch?v=8ggqu9cqZOo','_newtab');" id ="box8">
+                
+            </div>
+            <div class="box" id ="box9">
+                
+            </div>
+        </div>
+        </div>
+        <div>
+            <button onclick="makeBlocks();">maak blokken</button>
+        </div>
+
+    </body>
+</html>
