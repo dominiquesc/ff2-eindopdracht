@@ -1,2 +1,1 @@
-# ff2-eindopdracht
-Eindopdrachten Frontend Fundamentals
+Hallo marco opdracht zit in fundementals dominique had geprobeerd het helemaal zelf te maken met het in laten spawnen van een grid dat werkt ook alleen wist niet hoe je de aparte id van de divs terugkreeg zit als het goed in alles in behalve margin
